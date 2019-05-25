@@ -1,7 +1,8 @@
 import React from 'react';
+import CalculatorContainer from '../Calculator';
 
 const App = () => {
-  return <h1>App</h1>;
+  return <CalculatorContainer />;
 };
 
 export default App;
