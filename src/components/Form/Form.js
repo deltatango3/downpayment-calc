@@ -1,23 +1,39 @@
-import React, { Fragment } from 'react';
-import { TextField, Button } from '@material-ui/core';
+import React from 'react';
+import { TextField, Button, Grid } from '@material-ui/core';
 
 const Form = props => {
   const disabledSubmit = props.price <= 0;
+
   return (
-    <Fragment>
-      <TextField
-        label="Cost Of Home"
-        onChange={props.onPriceChange}
-        value={props.price}
-      />
-      <Button
-        variant="contained"
-        onClick={props.onSubmit}
-        disabled={disabledSubmit}
-      >
-        Submit
-      </Button>
-    </Fragment>
+    <Grid
+      item
+      container
+      direction="column"
+      spacing={16}
+      style={{ maxWidth: '500px' }}
+    >
+      <Grid item>
+        <TextField
+          onChange={props.onPriceChange}
+          value={props.price}
+          variant="outlined"
+          placeholder="Price of home"
+          fullWidth
+          inputProps={{ style: { textAlign: 'center', fontSize: '1.5rem' } }}
+        />
+      </Grid>
+      <Grid item>
+        <Button
+          variant="contained"
+          onClick={props.onSubmit}
+          disabled={disabledSubmit}
+          fullWidth
+          size="large"
+        >
+          Calculate
+        </Button>
+      </Grid>
+    </Grid>
   );
 };
 
